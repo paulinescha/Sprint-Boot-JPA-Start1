@@ -12,7 +12,7 @@ import java.util.List;
 public class MenuController {
 
     @GetMapping(path="/pizza/{id}", produces = "application/json")
-    public Pizza getPizza(@PathVariable("id") Long id) {
+    public Pizza getPizza(@PathVariable Long id) {
         return new Pizza();
     }
 
