@@ -11,12 +11,12 @@ import java.util.List;
 @RequestMapping(path="/menu")
 public class MenuController {
 
-    @GetMapping(path="/pizza/{id}", produces = "application/json")
+    @GetMapping(path="/pizzas/{id}", produces = "application/json")
     public Pizza getPizza(@PathVariable Long id) {
         return new Pizza();
     }
 
-    @GetMapping(path="/pizza", produces = "application/json")
+    @GetMapping(path="/pizzas", produces = "application/json")
     public List<Pizza> getPizzaList() {
         List<Pizza> pizzaList = new ArrayList();
         pizzaList.add(new Pizza());
@@ -25,7 +25,7 @@ public class MenuController {
         return pizzaList;
     }
 
-    @PostMapping(path="/pizza", consumes="application/json", produces = "application/json")
+    @PostMapping(path="/pizzas", consumes="application/json", produces = "application/json")
     public ResponseEntity<Void> addPizza(@RequestBody Pizza pizza) {
         return ResponseEntity.ok().build();
     }
