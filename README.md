@@ -9,6 +9,7 @@
 ## Step 1 - Add Data Access Layer
 
 Notice the project folder structure:
+- pom.xml - dependencies for jpa and h2 database
 - controller - contains all controller classes
 - data > domain - contains all domain entities
 - data > repository - contains all repository classes  
