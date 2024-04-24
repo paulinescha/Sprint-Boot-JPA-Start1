@@ -140,12 +140,21 @@ For this exercise, the service layer will act as a simple bridge between the dat
     ```
     - Modify other methods updatePizza and deletePizza
 
+    - Test the endpoints. You can edit and use the following JSON object to add pizzas to the database:
+    ```Json
+    {
+        "pizzaName": "Margherita",
+        "pizzaToppings": "Tomato Sauce, Mozzarella, Basil"
+    }
+    ```
+
     ## Step 4 - Add Mapping Between Entities
     - Create a new Entity called Menu.java inside the domain package
         - No CRUD operations will be performed, hence no JpaRepository needed
         - Add an id of type Long and appropriate annotations
         - Add a List property pizzaList and corresponding getter setter methods
         - Add one-to-many mapping between Menu and Pizza entities
+        - No change required in the Pizza entity
     - Add annotations
     ```Java
     @Entity
@@ -155,21 +164,9 @@ For this exercise, the service layer will act as a simple bridge between the dat
         @JsonIgnore
         private Long id;
 
-        @OneToMany(mappedBy = "menu")
+        @OneToMany
+        @JoinColumn(name = "menu_id")
         private List<Pizza> pizzaList;
-
-        //Getters/setters
-    }
-    ```
-    ```Java
-    @Entity
-    @Table(name = "pizza")
-    public class Pizza {
-
-        //other properties
-
-        @ManyToOne
-        private Menu menu;
 
         //Getters/setters
     }
